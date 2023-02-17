@@ -1,4 +1,4 @@
-module Example exposing (..)
+module Tests exposing (..)
 
 import Expect exposing (Expectation)
 import Fuzz exposing (Fuzzer, int, list, string)
@@ -11,7 +11,7 @@ suite : Test
 suite =
     test "hello world app" <|
         \_ ->
-            Expect.equal (Irony.convert elm) react
+            Expect.equal (Irony.convert elm) (Ok react)
 
 elm : String
 elm =

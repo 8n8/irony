@@ -9,14 +9,26 @@ import Test exposing (..)
 
 suite : Test
 suite =
-    test "hello world app" <|
+    List.map oneTest cases |> describe "unit tests"
+
+
+oneTest : Case -> Test
+oneTest { description, elm, react } =
+    test description <|
         \_ ->
             Expect.equal (Irony.convert elm) (Ok react)
 
 
-elm : String
-elm =
-    """module Main exposing (main)
+type alias Case =
+    { elm : String
+    , description : String
+    , react : String
+    }
+
+
+cases : List Case
+cases =
+    [ { elm = """module Main exposing (main)
 
 import Html
 
@@ -24,10 +36,9 @@ import Html
 main =
     Html.h1 (Html.text "hi")
 """
-
-
-react : String
-react =
-    """export function Main() {
+      , react = """export function Main() {
   return <h1>Hello</h1>;
 }"""
+      , description = "hello world"
+      }
+    ]

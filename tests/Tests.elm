@@ -22,7 +22,7 @@ import Html
 
 
 main =
-    Html.text "hi"
+    Html.h1 (Html.text "hi")
 """
 
 

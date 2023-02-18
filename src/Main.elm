@@ -9,7 +9,13 @@ import Irony
 
 main =
     Browser.sandbox
-        { init = ""
+        { init = """module X exposing (main)
+
+import Html
+
+main =
+    Html.text "hello"
+"""
         , view = view
         , update = update
         }
@@ -21,7 +27,7 @@ view elm =
     , textBox elm
     , typescript elm
     ]
-        |> Element.column []
+        |> Element.column [ Element.width Element.fill ]
         |> Element.layout []
 
 

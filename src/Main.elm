@@ -10,7 +10,7 @@ import Irony
 
 main =
     Browser.sandbox
-        { init = """module X exposing (main)
+        { init = """module Main exposing (main)
 
 import Html
 

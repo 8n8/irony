@@ -13,8 +13,8 @@ import Elm.Syntax.Node exposing (Node(..))
 convert : String -> Result String String
 convert elm =
     case parse elm of
-        Err _ ->
-            Err "failed"
+        Err err ->
+            Err err
 
         Ok ast ->
             Ok (toReact ast)

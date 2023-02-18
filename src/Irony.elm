@@ -143,8 +143,7 @@ functionDeclarationToReact { name, expression, arguments } =
     if List.isEmpty arguments then
         [ "var "
         , unwrap name
-        , " =\n"
-        , "  "
+        , " = "
         , expressionToReact (unwrap expression)
         , ";"
         ]

@@ -2,6 +2,7 @@ module Main exposing (main)
 
 import Browser
 import Element exposing (Element)
+import Element.Font as Font
 import Element.Input as Input
 import Html exposing (Html)
 import Irony
@@ -27,12 +28,22 @@ view elm =
     , textBox elm
     , typescript elm
     ]
-        |> Element.column [ Element.width Element.fill ]
+        |> Element.column
+            [ Element.width Element.fill
+            , Element.spacing 16
+            , Element.padding 8
+            ]
         |> Element.layout []
 
 
 header =
-    Element.text "Work in progress demo of a tool for converting Elm to React"
+    [ Element.text "Convert Elm to React"
+        |> Element.el
+            [ Font.size 32
+            ]
+    , Element.text "A work in progress demo"
+    ]
+        |> Element.column []
 
 
 update : String -> String -> String

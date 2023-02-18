@@ -68,10 +68,10 @@ exportsToReact : Module -> String
 exportsToReact module_ =
     case module_ of
         PortModule _ ->
-            "PortModule not implemented yet"
+            "PortModule NOT IMPLEMENTED YET"
 
         EffectModule _ ->
-            "EffectModule not implemented yet"
+            "EffectModule NOT IMPLEMENTED YET"
 
         NormalModule { exposingList } ->
             case unwrap exposingList of
@@ -79,7 +79,7 @@ exportsToReact module_ =
                     ""
 
                 All _ ->
-                    "Exposing all not implemented yet"
+                    "Exposing all NOT IMPLEMENTED YET"
 
                 Explicit oneOrMore ->
                     [ "export {"
@@ -96,13 +96,13 @@ exportToReact expose =
             name
 
         InfixExpose _ ->
-            "InfixExpose not implemented"
+            "InfixExpose NOT IMPLEMENTED"
 
         TypeOrAliasExpose _ ->
-            "TypeOrAliasExpose not implemented"
+            "TypeOrAliasExpose NOT IMPLEMENTED"
 
         TypeExpose _ ->
-            "TypeExpose not implemented"
+            "TypeExpose NOT IMPLEMENTED"
 
 
 declarationToReact : Node Declaration -> String
@@ -112,19 +112,19 @@ declarationToReact (Node _ declaration) =
             functionToReact function
 
         AliasDeclaration _ ->
-            "Alias declaration not implemented"
+            "Alias declaration NOT IMPLEMENTED"
 
         CustomTypeDeclaration _ ->
-            "Custom type declaration not implemented"
+            "Custom type declaration NOT IMPLEMENTED"
 
         PortDeclaration _ ->
-            "Port declaration not implemented"
+            "Port declaration NOT IMPLEMENTED"
 
         InfixDeclaration _ ->
-            "Infix declaration not implemented"
+            "Infix declaration NOT IMPLEMENTED"
 
         Destructuring _ _ ->
-            "Destructuring not implemented"
+            "Destructuring NOT IMPLEMENTED"
 
 
 unwrap : Node a -> a
@@ -155,61 +155,61 @@ expressionToReact expression =
             String.join "." (moduleName ++ [ functionName ])
 
         IfBlock _ _ _ ->
-            "IfBlock not implemented"
+            "IfBlock NOT IMPLEMENTED"
 
         PrefixOperator _ ->
-            "PrefixOperator not implemented"
+            "PrefixOperator NOT IMPLEMENTED"
 
         Operator _ ->
-            "Operator not implemented"
+            "Operator NOT IMPLEMENTED"
 
         Integer _ ->
-            "Integer not implemented"
+            "Integer NOT IMPLEMENTED"
 
         Hex _ ->
-            "Hex not implemented"
+            "Hex NOT IMPLEMENTED"
 
         Floatable _ ->
-            "Floatable not implemented"
+            "Floatable NOT IMPLEMENTED"
 
         Negation _ ->
-            "Negation not implemented"
+            "Negation NOT IMPLEMENTED"
 
         Literal literal ->
             String.concat [ "\"", literal, "\"" ]
 
         CharLiteral _ ->
-            "CharLiteral not implemented"
+            "CharLiteral NOT IMPLEMENTED"
 
         TupledExpression _ ->
-            "TupledExpression not implemented"
+            "TupledExpression NOT IMPLEMENTED"
 
         LetExpression _ ->
-            "LetExpression not implemented"
+            "LetExpression NOT IMPLEMENTED"
 
         CaseExpression _ ->
-            "CaseExpression not implemented"
+            "CaseExpression NOT IMPLEMENTED"
 
         LambdaExpression _ ->
-            "LambdaExpression not implemented"
+            "LambdaExpression NOT IMPLEMENTED"
 
         RecordExpr _ ->
-            "RecordExpr not implemented"
+            "RecordExpr NOT IMPLEMENTED"
 
         ListExpr _ ->
-            "ListExpr not implemented"
+            "ListExpr NOT IMPLEMENTED"
 
         RecordAccess _ _ ->
-            "RecordAccess not implemented"
+            "RecordAccess NOT IMPLEMENTED"
 
         RecordAccessFunction _ ->
-            "RecordAccessFunction not implemented"
+            "RecordAccessFunction NOT IMPLEMENTED"
 
         RecordUpdateExpression _ _ ->
-            "RecordUpdateExpression not implemented"
+            "RecordUpdateExpression NOT IMPLEMENTED"
 
         GLSLExpression _ ->
-            "GLSLExpression not implemented"
+            "GLSLExpression NOT IMPLEMENTED"
 
         ParenthesizedExpression parenthesized ->
             [ "("
@@ -219,7 +219,7 @@ expressionToReact expression =
                 |> String.concat
 
         UnitExpr ->
-            "UnitExpr not implemented"
+            "UnitExpr NOT IMPLEMENTED"
 
         Application app ->
             List.map unwrap app
@@ -227,7 +227,7 @@ expressionToReact expression =
                 |> applicationToReact
 
         OperatorApplication _ _ _ _ ->
-            "OperatorApplication not implemented"
+            "OperatorApplication NOT IMPLEMENTED"
 
 
 applicationToReact : List String -> String

@@ -140,15 +140,26 @@ functionToReact { declaration } =
 
 functionDeclarationToReact : FunctionImplementation -> String
 functionDeclarationToReact { name, expression, arguments } =
-    [ "function "
-    , unwrap name
-    , "("
-    , String.join ", " (List.map (unwrap >> patternToReact) arguments)
-    , ") {\n  return "
-    , expressionToReact (unwrap expression)
-    , ";\n}"
-    ]
-        |> String.concat
+    if List.isEmpty arguments then
+        [ "var "
+        , unwrap name
+        , " =\n"
+        , "  "
+        , expressionToReact (unwrap expression)
+        , ";"
+        ]
+            |> String.concat
+
+    else
+        [ "function "
+        , unwrap name
+        , "("
+        , String.join ", " (List.map (unwrap >> patternToReact) arguments)
+        , ") {\n  return "
+        , expressionToReact (unwrap expression)
+        , ";\n}"
+        ]
+            |> String.concat
 
 
 patternToReact : Pattern -> String

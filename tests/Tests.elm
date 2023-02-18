@@ -38,9 +38,8 @@ main =
 """
       , react = """import * as Html from "./Html";
 
-function main() {
-  return Html.h1((Html.text("hi")));
-}
+var main =
+  Html.h1((Html.text("hi")));
 
 export {main};
 """

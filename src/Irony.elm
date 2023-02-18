@@ -112,19 +112,19 @@ declarationToReact (Node _ declaration) =
             functionToReact function
 
         AliasDeclaration _ ->
-            ""
+            Debug.todo "Alias declaration not implemented"
 
         CustomTypeDeclaration _ ->
-            ""
+            Debug.todo "Custom type declaration not implemented"
 
         PortDeclaration _ ->
-            ""
+            Debug.todo "Port declaration not implemented"
 
         InfixDeclaration _ ->
-            ""
+            Debug.todo "Infix declaration not implemented"
 
         Destructuring _ _ ->
-            ""
+            Debug.todo "Destructuring not implemented"
 
 
 unwrap : Node a -> a

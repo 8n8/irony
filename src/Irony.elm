@@ -68,10 +68,10 @@ exportsToReact : Module -> String
 exportsToReact module_ =
     case module_ of
         PortModule _ ->
-            "PortModule not implemented yet"
+            Debug.todo "PortModule not implemented yet"
 
         EffectModule _ ->
-            "EffectModule not implemented yet"
+            Debug.todo "EffectModule not implemented yet"
 
         NormalModule { exposingList } ->
             case unwrap exposingList of
@@ -79,7 +79,7 @@ exportsToReact module_ =
                     ""
 
                 All _ ->
-                    "Exposing all not implemented yet"
+                    Debug.todo "Exposing all not implemented yet"
 
                 Explicit oneOrMore ->
                     [ "export {"
@@ -155,61 +155,61 @@ expressionToReact expression =
             String.join "." (moduleName ++ [ functionName ])
 
         IfBlock _ _ _ ->
-            "IfBlock not implemented"
+            Debug.todo "IfBlock not implemented"
 
         PrefixOperator _ ->
-            "PrefixOperator not implemented"
+            Debug.todo "PrefixOperator not implemented"
 
         Operator _ ->
-            "Operator not implemented"
+            Debug.todo "Operator not implemented"
 
         Integer _ ->
-            "Integer not implemented"
+            Debug.todo "Integer not implemented"
 
         Hex _ ->
-            "Hex not implemented"
+            Debug.todo "Hex not implemented"
 
         Floatable _ ->
-            "Floatable not implemented"
+            Debug.todo "Floatable not implemented"
 
         Negation _ ->
-            "Negation not implemented"
+            Debug.todo "Negation not implemented"
 
         Literal literal ->
             String.concat [ "\"", literal, "\"" ]
 
         CharLiteral _ ->
-            "CharLiteral not implemented"
+            Debug.todo "CharLiteral not implemented"
 
         TupledExpression _ ->
-            "TupledExpression not implemented"
+            Debug.todo "TupledExpression not implemented"
 
         LetExpression _ ->
-            "LetExpression not implemented"
+            Debug.todo "LetExpression not implemented"
 
         CaseExpression _ ->
-            "CaseExpression not implemented"
+            Debug.todo "CaseExpression not implemented"
 
         LambdaExpression _ ->
-            "LambdaExpression not implemented"
+            Debug.todo "LambdaExpression not implemented"
 
         RecordExpr _ ->
-            "RecordExpr not implemented"
+            Debug.todo "RecordExpr not implemented"
 
         ListExpr _ ->
-            "ListExpr not implemented"
+            Debug.todo "ListExpr not implemented"
 
         RecordAccess _ _ ->
-            "RecordAccess not implemented"
+            Debug.todo "RecordAccess not implemented"
 
         RecordAccessFunction _ ->
-            "RecordAccessFunction not implemented"
+            Debug.todo "RecordAccessFunction not implemented"
 
         RecordUpdateExpression _ _ ->
-            "RecordUpdateExpression not implemented"
+            Debug.todo "RecordUpdateExpression not implemented"
 
         GLSLExpression _ ->
-            "GLSLExpression not implemented"
+            Debug.todo "GLSLExpression not implemented"
 
         ParenthesizedExpression parenthesized ->
             [ "("
@@ -219,7 +219,7 @@ expressionToReact expression =
                 |> String.concat
 
         UnitExpr ->
-            "UnitExpr not implemented"
+            Debug.todo "UnitExpr not implemented"
 
         Application app ->
             List.map unwrap app
@@ -227,7 +227,7 @@ expressionToReact expression =
                 |> applicationToReact
 
         OperatorApplication _ _ _ _ ->
-            "OperatorApplication not implemented"
+            Debug.todo "OperatorApplication not implemented"
 
 
 applicationToReact : List String -> String

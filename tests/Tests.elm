@@ -36,9 +36,14 @@ import Html
 main =
     Html.h1 (Html.text "hi")
 """
-      , react = """export function Main() {
-  return <h1>Hello</h1>;
-}"""
+      , react = """import * as Html from "./Html";
+
+function main() {
+  return Html.h1((Html.text("hi")));
+}
+
+export {main};
+"""
       , description = "hello world"
       }
     ]

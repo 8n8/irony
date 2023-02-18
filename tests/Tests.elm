@@ -46,4 +46,18 @@ export {main};
 """
       , description = "hello world"
       }
+    , { elm = """module X exposing (x)
+
+
+x a =
+    a
+"""
+      , react = """function x(a) {
+  return a;
+}
+
+export {x};
+"""
+      , description = "function declaration with parameters"
+      }
     ]

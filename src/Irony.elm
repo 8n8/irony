@@ -8,6 +8,7 @@ import Elm.Syntax.Expression exposing (Expression(..), Function, FunctionImpleme
 import Elm.Syntax.File exposing (File)
 import Elm.Syntax.Module exposing (Module(..))
 import Elm.Syntax.Node exposing (Node(..))
+import Elm.Syntax.Pattern exposing (Pattern(..))
 
 
 convert : String -> Result String String
@@ -138,14 +139,65 @@ functionToReact { declaration } =
 
 
 functionDeclarationToReact : FunctionImplementation -> String
-functionDeclarationToReact { name, expression } =
+functionDeclarationToReact { name, expression, arguments } =
     [ "function "
     , unwrap name
-    , "() {\n  return "
+    , "("
+    , String.join ", " (List.map (unwrap >> patternToReact) arguments)
+    , ") {\n  return "
     , expressionToReact (unwrap expression)
     , ";\n}"
     ]
         |> String.concat
+
+
+patternToReact : Pattern -> String
+patternToReact pattern =
+    case pattern of
+        VarPattern name ->
+            name
+
+        AllPattern ->
+            "AllPattern NOT IMPLEMENTED"
+
+        UnitPattern ->
+            "UnitPattern NOT IMPLEMENTED"
+
+        CharPattern _ ->
+            "CharPattern NOT IMPLEMENTED"
+
+        StringPattern _ ->
+            "StringPattern NOT IMPLEMENTED"
+
+        IntPattern _ ->
+            "IntPattern NOT IMPLEMENTED"
+
+        HexPattern _ ->
+            "HexPattern NOT IMPLEMENTED"
+
+        FloatPattern _ ->
+            "FloatPattern NOT IMPLEMENTED"
+
+        TuplePattern _ ->
+            "TuplePattern NOT IMPLEMENTED"
+
+        RecordPattern _ ->
+            "RecordPattern NOT IMPLEMENTED"
+
+        UnConsPattern _ _ ->
+            "UnConsPattern NOT IMPLEMENTED"
+
+        ListPattern _ ->
+            "ListPattern NOT IMPLEMENTED"
+
+        NamedPattern _ _ ->
+            "NamedPattern NOT IMPLEMENTED"
+
+        AsPattern _ _ ->
+            "AsPattern NOT IMPLEMENTED"
+
+        ParenthesizedPattern _ ->
+            "ParenthesizedPattern NOT IMPLEMENTED"
 
 
 expressionToReact : Expression -> String
